@@ -7,6 +7,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from '@/components/ui/accordion';
+import Footer from '@/components/Footer';
 
 export default async function Page() {
 	const session = await auth();
@@ -122,6 +123,7 @@ export default async function Page() {
 					</AccordionItem>
 				</Accordion>
 			</main>
+			<Footer></Footer>
 		</>
 	);
 }
