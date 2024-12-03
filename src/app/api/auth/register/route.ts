@@ -8,13 +8,19 @@ export async function POST(req: Request) {
 
     const hashedPassword = await hash(password, 10);
 
-    const response = await prisma.user.create({
+    const user = await prisma.user.create({
       data: {
         name: name,
         email: email,
         password: hashedPassword,
       },
     });
+
+    await prisma.wallet.create({
+      data:{
+        userId: user.id,
+      }
+    })
   } catch (e) {
     console.log({ e });
   }
