@@ -4,6 +4,7 @@ import { signIn } from 'next-auth/react';
 import { FormEvent } from 'react';
 
 export default function Form() {
+  const homePage = '/'
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -12,7 +13,7 @@ export default function Form() {
       email: formData.get('email'),
       password: formData.get('password'),
       redirect: true,
-      callbackUrl: '/home',
+      callbackUrl: homePage,
     });
 
     if (response?.error) {
@@ -59,7 +60,7 @@ export default function Form() {
         <button
           onClick={() =>
             signIn('github', {
-              callbackUrl: '/home',
+              callbackUrl: homePage,
             })
           }
           className='w-full flex items-center justify-center px-4 py-2 font-semibold text-white bg-gray-800 rounded-md hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-500'

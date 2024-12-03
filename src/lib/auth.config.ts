@@ -15,8 +15,6 @@ export default {
         password: {},
       },
       async authorize(credentials, req) {
-        console.log('cheguei rapaziada');
-        
         if (!credentials.email) return null;
         const user = await prisma.user.findUnique({
           where: {
@@ -26,13 +24,9 @@ export default {
 
         if (!user) return null;
 
-        console.log(user);
-
         const passwordCorrect = await compare(credentials?.password as string, user?.password);
 
         if (passwordCorrect) {
-          console.log('tudo certo');
-
           return {
             id: user.id,
             name: user.name,

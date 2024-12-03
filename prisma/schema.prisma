@@ -8,10 +8,64 @@ generator client {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  name      String
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         String   @id @default(cuid())
+  name       String
+  email      String   @unique
+  password   String
+  qtdDracoin Float   @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  trades   Trades[]
+  missions UserMissionProgress[]
+  Wallet   Wallet?
+}
+
+model Wallet {
+  id      String @id @default(cuid())
+  userId  String @unique
+  balance Float  @default(0)
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Trades {
+  id           String   @id @default(cuid())
+  userId       String
+  symbol       String
+  buyPrice     Float
+  sellPrice    Float?
+  quantity     Float
+  fee          Float
+  totalCost    Float // BuyPrice * Quantity
+  tradeType    String //compra ou venda
+  profitOrLoss Float // SellPrice * Quantity - TotalCost - Fee
+  createdAt    DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Missions {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  criteria    String
+  Reward      Int
+  startDate   DateTime
+  endDate     DateTime
+
+  userMissions UserMissionProgress[]
+}
+
+model UserMissionProgress {
+  progressId      String    @id @default(cuid())
+  userId          String
+  missionId       String
+  currentProgress Float
+  status          String    @default("Em Andamento")
+  completionDate  DateTime?
+  rewardClaimed   Boolean   @default(false)
+
+  user    User     @relation(fields: [userId], references: [id])
+  mission Missions @relation(fields: [missionId], references: [id])
 }

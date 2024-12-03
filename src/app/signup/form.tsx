@@ -3,6 +3,7 @@
 import { FormEvent } from 'react';
 
 export default function Form() {
+  const loginPath = '/login'
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -66,7 +67,7 @@ export default function Form() {
         </form>
         <p className='text-sm text-center'>
           Já possui uma conta?{' '}
-          <a href='/login' className='text-blue-600 hover:underline'>
+          <a href={loginPath} className='text-blue-600 hover:underline'>
             Entrar
           </a>
         </p>
