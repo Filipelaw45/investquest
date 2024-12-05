@@ -1,8 +1,10 @@
-'use client';
-import { useState } from 'react';
 import Link from 'next/link';
+import { auth } from 'lib/auth';
+import { UserCircleIcon } from '@heroicons/react/24/outline';
+import ButtonLogout from './ButtonLogout';
 
-export default function Header() {
+export default async function Header() {
+	const session = await auth();
 
 	return (
 		<>
@@ -57,18 +59,26 @@ export default function Header() {
 						</li>
 					</ul>
 				</div>
-				<div className='flex flex-col lg:flex-row gap-4 px-6 lg:px-0 py-4 lg:py-0'>
-					<Link href='/login'>
-						<button className='px-8 border-2 border-primary-blue'>
-							ENTRAR
-						</button>
-					</Link>
-					<Link href='/signup'>
-						<button className='px-8 bg-primary-blue border-2 border-primary-blue text-white'>
-							CADASTRAR-SE
-						</button>
-					</Link>
-				</div>
+				{!session ? (
+					<div className='flex flex-col lg:flex-row gap-4 px-6 lg:px-0 py-4 lg:py-0'>
+						<Link href='/login'>
+							<button className='px-8 border-2 border-primary-blue'>
+								ENTRAR
+							</button>
+						</Link>
+						<Link href='/signup'>
+							<button className='px-8 bg-primary-blue border-2 border-primary-blue text-white'>
+								CADASTRAR-SE
+							</button>
+						</Link>
+					</div>
+				) : (
+					<div className='flex items-center'>
+						<UserCircleIcon className='h-10 w-10 text-primary-black' />
+						<span className='ml-2 text-lg font-medium'>Usuário</span>
+						<ButtonLogout></ButtonLogout>
+					</div>
+				)}
 			</nav>
 		</>
 	);
