@@ -8,7 +8,7 @@ export default async function Header() {
 
 	return (
 		<>
-			<nav className='flex items-center justify-between bg-white relative w-full z-10 py-3 px-5 lg:px-10'>
+			<nav className='flex items-center justify-between bg-white relative w-full z-10 py-3 px-5 lg:px-10 text-sm'>
 				<div className='flex'>
 					<div className='flex items-center'>
 						<Link href='/'>
@@ -19,7 +19,7 @@ export default async function Header() {
 					<ul className='list-reset lg:flex flex-1 items-center text-center lg:text-left'>
 						<li className='mr-0 lg:mr-3'>
 							<a
-								className='inline-block text-black text-lg lg:text-xl no-underline hover:underline py-2 px-4'
+								className='inline-block text-black text-xl lg:text-sm no-underline hover:underline py-2 pl-4'
 								href='#'
 							>
 								RECURSOS
@@ -27,7 +27,7 @@ export default async function Header() {
 						</li>
 						<li className='mr-0 lg:mr-3'>
 							<a
-								className='inline-block text-black text-lg lg:text-xl no-underline hover:underline py-2 px-4'
+								className='inline-block text-black text-lg lg:text-sm no-underline hover:underline py-2 '
 								href='#'
 							>
 								AIRDROP
@@ -35,7 +35,7 @@ export default async function Header() {
 						</li>
 						<li className='mr-0 lg:mr-3'>
 							<a
-								className='inline-block text-black text-lg lg:text-xl no-underline hover:underline py-2 px-4'
+								className='inline-block text-black text-lg lg:text-sm no-underline hover:underline py-2 '
 								href='#'
 							>
 								LEADERBOARD
@@ -43,7 +43,7 @@ export default async function Header() {
 						</li>
 						<li className='mr-0 lg:mr-3'>
 							<a
-								className='inline-block text-black text-lg lg:text-xl no-underline hover:underline py-2 px-4'
+								className='inline-block text-black text-lg lg:text-sm no-underline hover:underline py-2 '
 								href='#'
 							>
 								DRACOIN
@@ -51,7 +51,7 @@ export default async function Header() {
 						</li>
 						<li className='mr-0 lg:mr-3'>
 							<a
-								className='inline-block text-black text-lg lg:text-xl no-underline hover:underline py-2 px-4'
+								className='inline-block text-black text-lg lg:text-sm no-underline hover:underline py-2 '
 								href='#'
 							>
 								MISSÕES

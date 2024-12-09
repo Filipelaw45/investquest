@@ -3,30 +3,29 @@ import '../styles/globals.css';
 
 import { Odibee_Sans, Poppins } from 'next/font/google';
 
-// Configura as fontes
 const odibee = Odibee_Sans({
-  weight: ['400'], // Configure os pesos desejados
-  subsets: ['latin'],
+	weight: ['400'],
+	subsets: ['latin'],
 });
 
 const poppins = Poppins({
-  weight: ['400', '700'], // Configure os pesos desejados
-  subsets: ['latin'],
+	weight: ['200', '300', '400', '700'],
+	subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: 'Invest Quest',
-  description: 'Divirta-se investindo!',
+	title: 'Invest Quest',
+	description: 'Divirta-se investindo!',
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang='pt-br'>
-      <body className={`${odibee.className}`}>{children}</body>
-    </html>
-  );
+	return (
+		<html lang='pt-br'>
+			<body className={`${poppins.className}`}>{children}</body>
+		</html>
+	);
 }

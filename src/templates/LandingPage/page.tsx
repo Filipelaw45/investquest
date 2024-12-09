@@ -42,7 +42,7 @@ export default async function LandingPage() {
 					<img src='/img/DRACOIN BLOCK.png' alt='' className='w-1/2' />
 
 					<div className='flex flex-col items-center justify-center w-full gap-3 mt-4'>
-						<h5 className='2xl:text-2xl text-xl text-white'>
+						<h5 className='2xl:text-2xl text-xl text-white font-odibee'>
 							Mais do que uma moeda virtual, sua evolução no mundo dos
 							investimentos digitais.
 						</h5>
@@ -86,30 +86,30 @@ export default async function LandingPage() {
 				</section>
 
 				<Accordion type='single' collapsible className='w-full px-10 flex flex-col gap-5 my-5'>
-					<h1 className='text-3xl text-center'>ESCLAREÇA SUAS DÚVIDAS</h1>
+					<h1 className='text-2xl text-center'>ESCLAREÇA SUAS DÚVIDAS</h1>
 					<AccordionItem value='item-1' className='bg-primary-black px-7 text-white font-poppins'>
-						<AccordionTrigger className='text-xl'>O que são Dracoins e como posso usá-los na plataforma?</AccordionTrigger>
-						<AccordionContent className='text-xl'>
+						<AccordionTrigger className='text-xr'>O que são Dracoins e como posso usá-los na plataforma?</AccordionTrigger>
+						<AccordionContent className='text-xr'>
 							Yes. It adheres to the WAI-ARIA design pattern.
 						</AccordionContent>
 					</AccordionItem>
 					<AccordionItem value='item-2' className='bg-primary-black px-7 text-white font-poppins'>
-						<AccordionTrigger className='text-xl'>Como funciona o aprendizado gamificado na Invest Quest?</AccordionTrigger>
-						<AccordionContent className='text-xl'>
+						<AccordionTrigger className='text-xr'>Como funciona o aprendizado gamificado na Invest Quest?</AccordionTrigger>
+						<AccordionContent className='text-xr'>
 							Yes. It comes with default styles that matches the other
 							components&apos; aesthetic.
 						</AccordionContent>
 					</AccordionItem>
 					<AccordionItem value='item-3' className='bg-primary-black px-7 text-white font-poppins'>
-						<AccordionTrigger className='text-xl'>É seguro negociar criptomoedas e NFTs na Invest Quest?</AccordionTrigger>
-						<AccordionContent className='text-xl'>
+						<AccordionTrigger className='text-xr'>É seguro negociar criptomoedas e NFTs na Invest Quest?</AccordionTrigger>
+						<AccordionContent className='text-xr'>
 							Yes. It's animated by default, but you can disable it if you
 							prefer.
 						</AccordionContent>
 					</AccordionItem>
 					<AccordionItem value='item-4' className='bg-primary-black px-7 text-white font-poppins'>
-						<AccordionTrigger className='text-xl'>Eu sou iniciante. A plataforma é adequada para mim?</AccordionTrigger>
-						<AccordionContent className='text-xl'>
+						<AccordionTrigger className='text-xr'>Eu sou iniciante. A plataforma é adequada para mim?</AccordionTrigger>
+						<AccordionContent className='text-xr'>
 							Yes. It's animated by default, but you can disable it if you
 							prefer.
 						</AccordionContent>

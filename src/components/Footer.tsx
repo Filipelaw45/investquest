@@ -4,7 +4,7 @@ export default function Footer() {
 			<main className='bg-primary-black flex p-10 gap-10'>
 				<img src='/img/LOGO FOOTER.png' alt='' className='w-44 h-20' />
 				<div>
-					<h1 className='text-white text-2xl'>EMPRESA</h1>
+					<h1 className='text-white text-lg'>EMPRESA</h1>
 					<p className='text-white font-poppins text-xs'>Nossa equipe</p>
 					<p className='text-white font-poppins text-xs'>Carreiras</p>
 					<p className='text-white font-poppins text-xs'>Fale conosco</p>
@@ -19,7 +19,7 @@ export default function Footer() {
 					<p className='text-white font-poppins text-xs'>Autoridades</p>
 				</div>
 				<div>
-					<h1 className='text-white text-2xl'>ATENDIMENTO</h1>
+					<h1 className='text-white text-lg'>ATENDIMENTO</h1>
 					<p className='text-white font-poppins text-xs'>Centro de ajuda</p>
 					<p className='text-white font-poppins text-xs'>Verificação oficial</p>
 					<p className='text-white font-poppins text-xs'>Avisos</p>
@@ -28,14 +28,14 @@ export default function Footer() {
 					</p>
 				</div>
 				<div>
-					<h1 className='text-white text-2xl'>TECNOLOGIA</h1>
+					<h1 className='text-white text-lg'>TECNOLOGIA</h1>
 					<p className='text-white font-poppins text-xs'>Segurança</p>
 					<p className='text-white font-poppins text-xs'>API de dados</p>
 					<p className='text-white font-poppins text-xs'>API de negociações</p>
 					<p className='text-white font-poppins text-xs'>Status</p>
 				</div>
 				<div>
-					<h3 className='mb-5 text-2xl text-white'>COMUNIDADE</h3>
+					<h3 className='mb-5 text-lg text-white'>COMUNIDADE</h3>
 					<div className='flex justify-center space-x-4'>
 						{/* Instagram */}
 						<a
