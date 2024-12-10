@@ -29,7 +29,7 @@ const Form: React.FC<FormProps> = ({ userId }) => {
       
       if (response.ok) {
         setMessage(
-          `Compra realizada com sucesso! Você comprou ${quantity} de ${symbol} por $${data.message.buyPrice}.`
+          `Compra realizada com sucesso! Você comprou ${quantity} de ${symbol} por $${data.message.totalCost}.`
         );
       } else {
         setMessage(`Erro: ${data.message || 'Ocorreu um erro ao realizar a compra.'}`);
