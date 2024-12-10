@@ -15,7 +15,7 @@ export default function HomePage() {
 					<CandleChart symbol='SOLUSDT' title='Solana (SOL/USDT)' />
 				</div>
 
-				<section className='p-10'>
+				<section className='p-10 flex flex-col'>
 					<h1 className='text-2xl mb-5 font-bold'>MISSÕES RECOMENDADAS</h1>
 					<section className='flex gap-5 '>
 						<Mission
@@ -40,6 +40,7 @@ export default function HomePage() {
 							progress={94}
 						></Mission>
 					</section>
+					<button className='bg-primary-black px-20 py-2 text-bold text-white place-self-center mt-5'>VER TUDO</button>
 				</section>
 			</main>
 			<Footer />
