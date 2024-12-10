@@ -10,9 +10,9 @@ export default function HomePage() {
 			<Header />
 			<main className='flex flex-col min-h-screen bg-gray-100'>
 				<div className='flex gap-10 flex-wrap items-center justify-center'>
-					<CandleChart symbol='BTCUSDT' title='Bitcoin (BTC/USDT)' />
+					<CandleChart symbol='BTCUSDT' title='Bitcoin (BTC/USDT)' selectSymbol />
 
-					<CandleChart symbol='SOLUSDT' title='Solana (SOL/USDT)' />
+					<CandleChart symbol='SOLUSDT' title='Solana (SOL/USDT)' selectSymbol />
 				</div>
 
 				<section className='p-10 flex flex-col'>
@@ -28,6 +28,7 @@ export default function HomePage() {
 							title='Faça 2 simulações'
 							description='Teste seus conhecimentos nas nossas simulações'
 							progress={50}
+							link='/trades/buy'
 						></Mission>
 						<Mission
 							title='Interaja no feed'
