@@ -75,7 +75,7 @@ export default async function Header() {
 				) : (
 					<div className='flex items-center'>
 						<UserCircleIcon className='h-10 w-10 text-primary-black' />
-						<span className='ml-2 text-lg font-medium'>Usuário</span>
+						<span className='ml-2 text-lg font-medium'>{session.user.name}</span>
 						<ButtonLogout></ButtonLogout>
 					</div>
 				)}
