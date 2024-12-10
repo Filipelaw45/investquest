@@ -5,9 +5,9 @@ export async function POST(req: Request) {
   try {
     const { userId, symbol, quantity } = await req.json();
 
-    const fee = 1.5;
+    const fee = 0.0;
 
-    const response = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
+    const response = await fetch(`https://api.binance.com/api/v3/ticker/price?symbol=${symbol}`);
 
     if (!response.ok) {
       throw new Error('Failed to fetch coin data');
@@ -33,7 +33,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: trade }, { status: 200 });
   } catch (e) {
     console.log({ e });
+    return NextResponse.json({ message: 'erro', e });
   }
-
-  return NextResponse.json({ message: 'success' });
 }

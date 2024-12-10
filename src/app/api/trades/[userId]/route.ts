@@ -1,7 +1,7 @@
 import { prisma } from 'lib/prisma';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export async function GET({ params }: { params: { userId: string } }) {
+export async function GET(_request: Request, { params }: { params: { userId: string } }) {
   try {
     const { userId } = params;
 
@@ -16,8 +16,7 @@ export async function GET({ params }: { params: { userId: string } }) {
 
     return NextResponse.json({ message: trades }, { status: 200 });
   } catch (e) {
-    console.log({ e });
+    console.error(e);
+    return NextResponse.json({ message: 'erro', error: e }, { status: 500 });
   }
-
-  return NextResponse.json({ message: 'success' });
 }
