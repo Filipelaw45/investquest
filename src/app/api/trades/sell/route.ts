@@ -5,19 +5,19 @@ export async function POST(req: Request) {
   try {
     const { tradeId } = await req.json();
 
-    // const fee = 1.5;
-
-    const response = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch coin data');
-    }
-
     const uniqueTrade = await prisma.trades.findUnique({
       where: {
         id: tradeId,
       },
     });
+
+    const response = await fetch(
+      `https://api.binance.com/api/v3/ticker/price?symbol=${uniqueTrade?.symbol}`
+    );
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch coin data');
+    }
 
     if (!uniqueTrade) throw new Error('Failed to fetch coin data');
 
@@ -39,7 +39,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: trade }, { status: 200 });
   } catch (e) {
     console.log({ e });
+    return NextResponse.json({ message: 'erro', e });
   }
-
-  return NextResponse.json({ message: 'success' });
 }
