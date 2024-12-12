@@ -1,8 +1,8 @@
 import { auth } from 'lib/auth';
 import { redirect } from 'next/navigation';
 import Form from './pageconfig';
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import HeaderLogged from '@/components/HeaderLogged';
 
 export default async function Trades() {
   const session = await auth();
@@ -17,7 +17,7 @@ export default async function Trades() {
   }
   return (
     <>
-      <Header></Header>
+      <HeaderLogged />
       <Form userId={userId} />
       <Footer></Footer>
     </>

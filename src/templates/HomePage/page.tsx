@@ -3,11 +3,12 @@ import Header from '@/components/Header';
 
 import Footer from '@/components/Footer';
 import Mission from '@/components/Mission';
+import HeaderLogged from '@/components/HeaderLogged';
 
 export default function HomePage() {
 	return (
 		<>
-			<Header />
+			<HeaderLogged />
 			<main className='flex flex-col min-h-screen bg-gray-100'>
 				<div className='flex gap-10 flex-wrap items-center justify-center'>
 					<CandleChart symbol='BTCUSDT' title='Bitcoin (BTC/USDT)' selectSymbol />

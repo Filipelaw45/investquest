@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Sell from './pageconfig';
+import HeaderLogged from '@/components/HeaderLogged';
 
 export default async function Trades() {
   const session = await auth();
@@ -12,7 +13,7 @@ export default async function Trades() {
   const userId = session?.user.id;
   return (
     <>
-      <Header></Header>
+      <HeaderLogged />
       <Sell userId={userId} />
       <Footer></Footer>
     </>
