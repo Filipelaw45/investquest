@@ -1,9 +1,9 @@
-'use client';
-
+"use client"
 import CandleChart from '@/components/CandleChart';
 import { SellList } from '@/components/SellList';
 import { MyTradesList } from '@/components/TradeList';
 import { useEffect, useState } from 'react';
+import { useAlertTrade } from 'store/useTradeStore';
 
 interface Trade {
   id: string;
@@ -26,9 +26,13 @@ const Sell: React.FC<FormProps> = ({ userId }) => {
   const [myTrades, setMyTrades] = useState<Trade[]>([]);
   const [myBuyTrades, setBuyMyTrades] = useState<Trade[]>([]);
 
+  const { dialogOpen } = useAlertTrade();
+
   const myTradesData = async (): Promise<Trade[] | null> => {
     try {
-      const response = await fetch(`http://localhost:3000/api/trades/sell/${userId}`);
+      const response = await fetch(
+        `http://localhost:3000/api/trades/sell/${userId}`
+      );
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
@@ -46,18 +50,20 @@ const Sell: React.FC<FormProps> = ({ userId }) => {
       if (data) setMyTrades(data);
     };
 
-    fetchTrades();
-  }, [userId]);
+    if (userId) {
+      fetchTrades();
+    }
+  }, [userId, dialogOpen]);
 
   const myBuyData = async (): Promise<Trade[] | null> => {
     try {
-      const response = await fetch(`http://localhost:3000/api/trades/buy/${userId}`);
+      const response = await fetch(
+        `http://localhost:3000/api/trades/buy/${userId}`
+      );
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
-      console.log(data);
-      
       return data.message || [];
     } catch (error) {
       console.error('Erro ao buscar trades:', error);
@@ -71,39 +77,45 @@ const Sell: React.FC<FormProps> = ({ userId }) => {
       if (data) setBuyMyTrades(data);
     };
 
-    fetchTrades();
-  }, [userId]);
+    if (userId) {
+      fetchTrades();
+    }
+  }, [userId, dialogOpen]);
 
   return (
-    <main className='w-full px-10 flex'>
+    <main className="w-full px-10 flex">
       <CandleChart
         symbol={symbol}
-        title={symbol === 'SOLUSDT' ? 'SOLANA (SOL/USDT)' : 'BITCOIN (BTC/USDT)'}
+        title={
+          symbol === 'SOLUSDT' ? 'SOLANA (SOL/USDT)' : 'BITCOIN (BTC/USDT)'
+        }
       />
-      <section className='ml-8 w-full'>
+      <section className="ml-8 w-full">
         <div>
-          <label htmlFor='symbol' className='block text-sm font-medium'>
+          <label htmlFor="symbol" className="block text-sm font-medium">
             Criptomoeda
           </label>
           <select
-            id='symbol'
+            id="symbol"
             value={symbol}
             onChange={(e) => setSymbol(e.target.value)}
-            className='border rounded p-2 w-full'
+            className="border rounded p-2 w-full"
           >
-            <option value='BTCUSDT'>BITCOIN</option>
-            <option value='SOLUSDT'>SOLANA</option>
+            <option value="BTCUSDT">BITCOIN</option>
+            <option value="SOLUSDT">SOLANA</option>
           </select>
         </div>
-        <div>
-          <h2 className='text-xl font-semibold mb-4'>Vender</h2>
-          <div>
-            <SellList trades={myBuyTrades} />
+        <div className="flex w-full">
+          <div className="w-full">
+            <h2 className="text-xl font-semibold mb-4">Vender</h2>
+            <div>
+              <SellList trades={myBuyTrades} />
+            </div>
           </div>
-        </div>
-        <div className='mt-6'>
-          <h2 className='text-xl font-semibold mb-4'>Minhas Trades</h2>
-          <MyTradesList trades={myTrades} />
+          <div className="w-full">
+            <h2 className="text-xl font-semibold mb-4">Minhas Trades</h2>
+            <MyTradesList trades={myTrades} />
+          </div>
         </div>
       </section>
     </main>
