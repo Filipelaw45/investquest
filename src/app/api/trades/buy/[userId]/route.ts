@@ -1,9 +1,15 @@
 import { prisma } from 'lib/prisma';
 import { NextResponse } from 'next/server';
 
-export async function GET(_request: Request, { params }: { params: { userId: string } }) {
+interface Params {
+  userId: string;
+}
+
+export async function GET(_request: Request, params: { params: Promise<Params> }) {
   try {
-    const { userId } = params;
+    const resolvedParams = await params.params;
+
+    const { userId } = resolvedParams;
 
     if (!userId) throw new Error('Failed to fetch coin data');
 
