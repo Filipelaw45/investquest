@@ -36,7 +36,7 @@ export default async function HeaderLogged() {
 						<li className='mr-0 lg:mr-3'>
 							<a
 								className='inline-block text-black text-lg lg:text-sm no-underline hover:underline py-2 '
-								href='#'
+								href='/leaderboard'
 							>
 								LEADERBOARD
 							</a>

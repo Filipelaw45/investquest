@@ -38,7 +38,7 @@ model Trades {
   fee          Float
   totalCost    Float // BuyPrice * Quantity
   tradeType    String //compra ou venda
-  profitOrLoss Float // SellPrice * Quantity - TotalCost - Fee
+  profitOrLoss Float // SellPrice * Quantity - TotalCost
   createdAt    DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id])
