@@ -43,13 +43,16 @@ export const MyTradesList = ({ trades }: { trades: Trade[] }) => {
                     <strong>Preço de compra:</strong> ${trade.buyPrice.toFixed(2)}
                   </p>
                   <p>
-                    {/* <strong>Preço de venda:</strong> ${trade ? trade.sellPrice.toFixed(2) : 0} */}
+                    <strong>Preço de venda:</strong> ${trade ? trade.sellPrice.toFixed(2) : 0}
                   </p>
                   <p>
                     <strong>Quantidade:</strong> {trade.quantity}
                   </p>
                   <p>
                     <strong>Custo Total:</strong> ${trade.totalCost.toFixed(2)}
+                  </p>
+                  <p>
+                    <strong>Lucro Total:</strong> ${(trade.sellPrice - trade.buyPrice).toFixed(2)}
                   </p>
                 </div>
               )}
